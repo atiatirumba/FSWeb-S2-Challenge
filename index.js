@@ -105,7 +105,7 @@ sonucu konsolde gözlemleyin */
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini 
 elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 
 /* kodlar buraya */
 
@@ -128,8 +128,9 @@ var bircumle;
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function cumlelereDonustur(cumlelerArr, seperator = ",") {
+  const result = cumlelerArr.map(kelimeler => kelimeler.join(seperator));
+  return result
 }
 
 /* GÖREV 2:
@@ -145,8 +146,15 @@ function cumlelereDonustur(/* kodlar buraya */) {
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function paragrafOlustur(cumleler, cumleKur, cumlelereDonustur) {
+  const duzCumleler = cumlelereDonustur(cumleler, " ");
+  return cumleKur(
+    duzCumleler[1],
+    duzCumleler[3],
+    duzCumleler[5],
+    duzCumleler[7],
+    duzCumleler[9]
+    );
 }
 
 /* 	GÖREV 3:
@@ -154,7 +162,8 @@ function paragrafOlustur(/* kodlar buraya */) {
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
+ meyveler.pop();
+meyveler.shift();
 
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , 
 Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise 
@@ -162,15 +171,18 @@ arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı ol
 Kirpiyi dizinin son elemanına ekleyin 🦔
  */
 //3b çözümü
-/* kodlar buraya */
+sebzeler.push("🦔");
+sebzeler.unshift("🐇");
+  
+ 
 
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son 
 elemanlara denk gelecek şekilde, iki diziyi birleştirip sonucu manav dizisine aktarın. (.concat metodu)
  */
 //3c çözümü
-/* kodlar buraya */
+/*   */
 
-var manav;
+var manav = meyveler.concat(sebzeler);
 
 /* 	GÖREV 4:
 		Yeni kurulmuş bir mesajlaşma startup firması atılan mesajları emojilerle zenginleştirmek istiyor. 
@@ -189,8 +201,14 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function emojileriDonustur(mesaj, emojiler) {
+  let result = mesaj;
+  for (let emojiKey in emojiler){
+    result= result
+        .replaceAll(emojiKey.toLowerCase(), emojiler[emojiKey])
+        .replaceAll(emojiKey.toUpperCase(), emojiler[emojiKey]);
+  }
+  return result;
 }
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
